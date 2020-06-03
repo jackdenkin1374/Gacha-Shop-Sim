@@ -1,0 +1,11 @@
+Gacha*Shop/[Ll]ibrary/
+Gacha*Shop/[Tt]emp/
+Gacha*Shop/[Oo]bj/
+Gacha*Shop/[Bb]uild/
+Gacha*Shop/[Bb]builds/
+Gacha*Shop/[Ll]ogs/
+Gacha*Shop/[Mm]emoryCaptures/
+
+!Gacha*Shop/[Aa]ssets/**/*.meta
+
+Gacha*Shop/[Aa]ssets/TextMesh*Pro
