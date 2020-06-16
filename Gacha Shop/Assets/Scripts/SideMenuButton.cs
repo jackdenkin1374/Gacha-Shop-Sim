@@ -26,39 +26,45 @@ public class SideMenuButton : MonoBehaviour
     }
 
     public void BGSlideInAndOut(){
-        Vector2 pos = RT.anchoredPosition;
-        // Debug.Log(pos);
-        // Debug.Log(pos.x);
-        Vector2 newPos = new Vector2(-874.0f, 0.0f);
-        Vector2 originPos = new Vector2(-1162.0f, 0.0f);
-
-        if(pos.x <= -1050){
-            // Debug.Log("Moving In");
-            RT.DOAnchorPos(newPos, 1.0f, true);
-        } else if(pos.x >= -1000){
-            // Debug.Log("Moving Out");
-            RT.DOAnchorPos(originPos, 1.0f, true);
-        }
+        InAndOut(1.0f, -1050, -1000, new Vector2(-874.0f, 0.0f), new Vector2(-1162.0f, 0.0f));
     }
 
     public void SideButtonIAO(){
-        Vector2 pos = RT.anchoredPosition;
-        // Debug.Log(pos);
-        // Debug.Log(pos.x);
-        Vector2 newPos = new Vector2(-802.0f, 469.0f);
-        Vector2 originPos = new Vector2(-935.0f, 469.0f);
-        Vector3 newRot = new Vector3(0.0f, 0.0f, 180.0f);
-        Vector3 originRot = new Vector3(0.0f, 0.0f, 0.0f);
+        IAOAndRotate(1.0f, -900, -850, 
+                     new Vector2(-802.0f, 469.0f), new Vector2(-935.0f, 469.0f),
+                     new Vector3(0.0f, 0.0f, 180.0f), new Vector3(0.0f, 0.0f, 0.0f));
+    }
 
-        if(pos.x <= -900){
+    public void ButtonListIAO(){
+        InAndOut(1.0f, 0, 100, new Vector2(245.0f, 0.0f), new Vector2(-40.0f, 0.0f));
+    }
+
+    private void InAndOut(float time, int inLimit, int outLimit,
+                         Vector2 newPos, Vector2 originPos){
+
+        Vector2 pos = RT.anchoredPosition;                     
+        if(pos.x <= inLimit){
             // Debug.Log("Moving In");
-            RT.DOAnchorPos(newPos, 1.0f, true);
-            RT.DORotate(newRot, 1.0f);
-        } else if(pos.x >= -850){
+            RT.DOAnchorPos(newPos, time, true);
+        } else if(pos.x >= outLimit){
             // Debug.Log("Moving Out");
-            RT.DOAnchorPos(originPos, 1.0f, true);
-            RT.DORotate(originRot, 1.0f);
+            RT.DOAnchorPos(originPos, time, true);
         }
     }
 
+    private void IAOAndRotate(float time, int inLimit, int outLimit,
+                             Vector2 newPos, Vector2 originPos, 
+                             Vector3 newRot, Vector3 originRot){
+
+        Vector2 pos = RT.anchoredPosition;
+        if(pos.x <= inLimit){
+            // Debug.Log("Moving In");
+            RT.DOAnchorPos(newPos, time, true);
+            RT.DORotate(newRot, time);
+        } else if(pos.x >= outLimit){
+            // Debug.Log("Moving Out");
+            RT.DOAnchorPos(originPos, time, true);
+            RT.DORotate(originRot, time);
+        }
+    }
 }
