@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class GachaSystem : MonoBehaviour
 {
     public PlayerSystem ps;
+
+    private ItemDatabase itemdatabase;
+
+    public List<Item> rarityList = new List<Item>();
     
     // public List<GameObject> items;
     public int[] rates = {
@@ -15,28 +19,35 @@ public class GachaSystem : MonoBehaviour
         50 // Legendary
     };
 
-    public int[] common = {
-        
-    };
-
-    public int[] uncommon = {
-
-    };
-
-    public int[] rare = {
-
-    };
-
-    public int[] legendary = {
-
-    };
+    public List<int> common;
+    public List<int> uncommon;
+    public List<int> rare;
+    public List<int> legendary;
 
     private int total;
     private int rand;
 
     private void Start(){
-        ps = FindObjectOfType(typeof(PlayerSystem)) as PlayerSystem;
+        itemdatabase = ItemDatabase.Instance;
+
+        Debug.Log(itemdatabase.Items[0].ItemName);
+        rarityList.Add(itemdatabase.Items[0]);
+        common.Add(itemdatabase.Items[0].Rarity);
+        common.Add(itemdatabase.Items[1].Rarity);
+
+        Debug.Log(rarityList[0].ItemName);
+        Debug.Log(common[0]);
+        Debug.Log(common[1]);
     }
+
+    // public Item item;
+    // public Text itemText;
+    // public Image itemImage;
+    
+    // void SetupItemValues(){
+    //     itemText.text = item.ItemName;
+    //     itemImage.sprite = Resources.Load<Sprite>("UI/Icons/Common/" + item.ObjectSlug);
+    // }
 
     private void runGacha(int count){      
         for(int x = 0; x < count; x++){

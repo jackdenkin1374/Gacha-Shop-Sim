@@ -1,0 +1,18 @@
+[
+    {
+        "objectSlug": "common_egg",
+        "itemName": "Egg",
+        "description": "A regular chicken egg",
+        "itemType": "FoodAndDrink",
+        "rarityType": "Common",
+        "rarity": 10
+    },
+    {
+        "objectSlug": "common_wood",
+        "itemName": "Wood",
+        "description": "Usable building material",
+        "itemType": "Material",
+        "rarityType": "Common",
+        "rarity": 9
+    }
+]
