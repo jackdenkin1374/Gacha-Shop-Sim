@@ -25,6 +25,14 @@ public class InventoryController : MonoBehaviour
         GiveItem("common_wood");
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GiveItem("common_egg");
+        }
+    }
+
     public void GiveItem(string itemSlug){
         Item item = itemdatabase.GetItem(itemSlug);
         playerItems.Add(item);

@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public class Item
 {
-    public enum ItemTypes { FoodAndDrink, Material }
+    public enum ItemTypes { FoodAndDrink, Material, Junk, Clothing, Weapon, Key }
     public enum RarityTypes { Common, Uncommon, Rare, Legendary}
     public string ObjectSlug { get; set; }
     public string ItemName { get; set; }
