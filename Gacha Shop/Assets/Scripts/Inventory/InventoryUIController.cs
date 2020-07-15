@@ -13,10 +13,10 @@ public class InventoryUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("InventoryUI Starting");
+        // Debug.Log("InventoryUI Starting");
         UIEventHandler.OnItemAddedToInventory += ItemAdded;
         
-        itemContainer = Resources.Load<InventoryUIItem>("UI/Item_Container");
+        itemContainer = Resources.Load<InventoryUIItem>("UI/Container_Styles/Item_Container");
         inventoryPanel.gameObject.SetActive(false);
     }
 

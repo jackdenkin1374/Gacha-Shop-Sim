@@ -36,4 +36,13 @@ public class PlayerSystem : MonoBehaviour
     public void CountMoney(){
         moneyCounter.SetText("Money: $" + money);
     }
+
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            money += 900;
+            TimesXButtonText();
+            CountMoney();
+        }
+    }
 }

@@ -1,0 +1,3 @@
+I is inventory screen
+L is give item Egg
+M is add 900 money

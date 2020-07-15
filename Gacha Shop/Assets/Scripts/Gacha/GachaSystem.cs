@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GachaSystem : MonoBehaviour
 {
     public PlayerSystem ps;
+    public RectTransform gachaPullPanel;
+    // public GameObject contentView;
+    public GachaUIController gachaUIController;
 
     private ItemDatabase itemdatabase;
     private InventoryController inventory;
@@ -131,6 +134,7 @@ public class GachaSystem : MonoBehaviour
                 //award item
                 Debug.Log("Award: " + itemWeight.ItemName + " - " + itemWeight.Rarity + " - " + itemWeight.RarityType);
                 inventory.GiveItem(itemWeight.ObjectSlug);
+                UIEventHandler.ItemPulled(itemWeight);
                 return itemWeight;
             } else {
                 rand -= itemWeight.Rarity;
@@ -141,30 +145,57 @@ public class GachaSystem : MonoBehaviour
     }
 
     public void TimesOnePull(){
-        runGacha(1);
+        if(gachaPullPanel.gameObject.activeSelf == false) {
+            gachaPullPanel.gameObject.SetActive(true);
+            runGacha(1);
+        } else {
+            gachaUIController.DestroyItemPulled();
+            runGacha(1);
+        }
     }
 
     public void TimesXPull(){
         int totalAmount = 1000;
         int lower;
-        if(ps.money < 0){
-            Debug.Log("No money");
-            return;
-        }
-        if(ps.money > totalAmount){
-            runGacha((totalAmount/100));
+        if(ps.money < 100){
+            Debug.Log("Not enough money");
             return;
         }
 
-        while(true){
-            lower = totalAmount - 100;
-            Debug.Log(lower);
-            if(ps.money > lower && ps.money < 1000){               
-                runGacha((lower/100));
+        if(gachaPullPanel.gameObject.activeSelf == false){
+            gachaPullPanel.gameObject.SetActive(true);
+            if(ps.money > totalAmount){               
+                runGacha((totalAmount/100));
                 return;
-            } 
-            totalAmount -= 100;
-            Debug.Log(totalAmount);
+            }
+
+            while(true){
+                lower = totalAmount - 100;
+                Debug.Log(lower);
+                if(ps.money > lower && ps.money < 1000){               
+                    runGacha((lower/100));
+                    return;
+                } 
+                totalAmount -= 100;
+                Debug.Log(totalAmount);
+            }
+        } else {
+            gachaUIController.DestroyItemPulled();
+            if(ps.money > totalAmount){               
+                runGacha((totalAmount/100));
+                return;
+            }
+
+            while(true){
+                lower = totalAmount - 100;
+                Debug.Log(lower);
+                if(ps.money > lower && ps.money < 1000){               
+                    runGacha((lower/100));
+                    return;
+                } 
+                totalAmount -= 100;
+                Debug.Log(totalAmount);
+            }
         }
     }
 }

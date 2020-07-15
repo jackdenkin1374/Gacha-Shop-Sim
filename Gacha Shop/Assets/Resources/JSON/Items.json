@@ -3,6 +3,7 @@
         "objectSlug": "common_stick",
         "itemName": "Stick",
         "description": "Usable building material",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Common",
         "rarity": 15
@@ -11,6 +12,7 @@
         "objectSlug": "common_cloth",
         "itemName": "Cloth",
         "description": "Usable clothing material",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Common",
         "rarity": 13
@@ -19,6 +21,7 @@
         "objectSlug": "common_bottle",
         "itemName": "Bottle",
         "description": "A empty plastic bottle",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Junk",
         "rarityType": "Common",
         "rarity": 12
@@ -27,6 +30,7 @@
         "objectSlug": "common_egg",
         "itemName": "Egg",
         "description": "A regular chicken egg",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "FoodAndDrink",
         "rarityType": "Common",
         "rarity": 10
@@ -35,6 +39,7 @@
         "objectSlug": "common_needle",
         "itemName": "Needle",
         "description": "Usable clothing material",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Common",
         "rarity": 10
@@ -43,6 +48,7 @@
         "objectSlug": "common_wood",
         "itemName": "Wood",
         "description": "Usable building material",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Common",
         "rarity": 9
@@ -51,6 +57,7 @@
         "objectSlug": "common_plank",
         "itemName": "Plank",
         "description": "Usable building material",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Common",
         "rarity": 8
@@ -59,6 +66,7 @@
         "objectSlug": "common_hat",
         "itemName": "Hat",
         "description": "A common type of clothing",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Clothing",
         "rarityType": "Common",
         "rarity": 7
@@ -67,6 +75,7 @@
         "objectSlug": "common_cap",
         "itemName": "Cap",
         "description": "Some form of currency",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Junk",
         "rarityType": "Common",
         "rarity": 6
@@ -78,6 +87,7 @@
         "objectSlug": "uncommon_sword",
         "itemName": "Sword",
         "description": "A sharp weapon",
+        "gachaType": [ "Beginner_Pool", "Forge", "Deserted_Town" ],
         "itemType": "Weapon",
         "rarityType": "Uncommon",
         "rarity": 8
@@ -86,6 +96,7 @@
         "objectSlug": "uncommon_wand",
         "itemName": "Wand",
         "description": "A wooden cane of sorts",
+        "gachaType": [ "Deserted_Town" ],
         "itemType": "Weapon",
         "rarityType": "Uncommon",
         "rarity": 7
@@ -97,6 +108,7 @@
         "objectSlug": "rare_gem",
         "itemName": "Gem",
         "description": "A shiny gem of unknown origin",
+        "gachaType": [ "Beginner_Pool", "Forge", "Deserted_Town" ],
         "itemType": "Material",
         "rarityType": "Rare",
         "rarity": 10
@@ -105,6 +117,7 @@
         "objectSlug": "rare_ring",
         "itemName": "Ring",
         "description": "A fashionable ring",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town" ],
         "itemType": "Clothing",
         "rarityType": "Rare",
         "rarity": 8
@@ -116,6 +129,7 @@
         "objectSlug": "legendary_rock",
         "itemName": "Rock",
         "description": "A rock of superb quality",
+        "gachaType": [ "Beginner_Pool", "Deserted_Town", "Once_In_A_Lifetime" ],
         "itemType": "Material",
         "rarityType": "Legendary",
         "rarity": 15
@@ -124,6 +138,7 @@
         "objectSlug": "legendary_key",
         "itemName": "Key",
         "description": "The key you have finally been going for, is now in your hands",
+        "gachaType": [ "Beginner_Pool", "Once_In_A_Lifetime" ],
         "itemType": "Key",
         "rarityType": "Legendary",
         "rarity": 1
