@@ -7,13 +7,10 @@ public class GachaSystem : MonoBehaviour
 {
     public PlayerSystem ps;
     public RectTransform gachaPullPanel;
-    // public GameObject contentView;
     public GachaUIController gachaUIController;
 
     private ItemDatabase itemdatabase;
     private InventoryController inventory;
-
-    public List<Item> rarityList = new List<Item>();
     
     // public List<GameObject> items;
     public int[] rates = {
@@ -23,38 +20,79 @@ public class GachaSystem : MonoBehaviour
         50 // Legendary
     };
 
-    public List<Item> common = new List<Item>();
-    public List<Item> uncommon = new List<Item>();
-    public List<Item> rare = new List<Item>();
-    public List<Item> legendary = new List<Item>();
-
     private int total;
     private int rand;
+    // private string currentGacha;
+    private GachaPass currentGacha;
 
     private void Start(){
         itemdatabase = ItemDatabase.Instance;
         inventory = InventoryController.Instance;
+        currentGacha = itemdatabase.Beginner_Pool;
 
-        foreach(Item item in itemdatabase.Items){
-            if(item.RarityType.ToString() == "Common")
-                common.Add(item);
-            if(item.RarityType.ToString() == "Uncommon")
-                uncommon.Add(item);
-            if(item.RarityType.ToString() == "Rare")
-                rare.Add(item);
-            if(item.RarityType.ToString() == "Legendary")
-                legendary.Add(item);
+        Debug.Log("Current Gacha is " + currentGacha.name);
+
+        // Debug.Log(currentGacha.name);
+        // Debug.Log(currentGacha.common.Count);
+        // Debug.Log(currentGacha.uncommon.Count);
+        // Debug.Log(currentGacha.rare.Count);
+        // Debug.Log(currentGacha.legendary.Count);
+
+        // Debug.Log("Beginner Pool Common count is " + itemdatabase.Beginner_Pool.common.Count);
+        // Debug.Log("Beginner Pool Uncommon count is " + itemdatabase.Beginner_Pool.uncommon.Count);
+        // Debug.Log("Beginner Pool Rare count is " + itemdatabase.Beginner_Pool.rare.Count);
+        // Debug.Log("Beginner Pool Legendary count is " + itemdatabase.Beginner_Pool.legendary.Count);
+
+        // Debug.Log("Deserted Town Common count is " + itemdatabase.Deserted_Town.common.Count);
+        // Debug.Log("Deserted Town Uncommon count is " + itemdatabase.Deserted_Town.uncommon.Count);
+        // Debug.Log("Deserted Town Rare count is " + itemdatabase.Deserted_Town.rare.Count);
+        // Debug.Log("Deserted Town Legendary count is " + itemdatabase.Deserted_Town.legendary.Count);
+
+        // Debug.Log("Forge Common count is " + itemdatabase.Forge.common.Count);
+        // Debug.Log("Forge Uncommon count is " + itemdatabase.Forge.uncommon.Count);
+        // Debug.Log("Forge Rare count is " + itemdatabase.Forge.rare.Count);
+        // Debug.Log("Forge Legendary count is " + itemdatabase.Forge.legendary.Count);
+
+        // Debug.Log("Lifetime Common count is " + itemdatabase.Once_In_A_Lifetime.common.Count);
+        // Debug.Log("Lifetime Uncommon count is " + itemdatabase.Once_In_A_Lifetime.uncommon.Count);
+        // Debug.Log("Lifetime Rare count is " + itemdatabase.Once_In_A_Lifetime.rare.Count);
+        // Debug.Log("Lifetime Legendary count is " + itemdatabase.Once_In_A_Lifetime.legendary.Count);
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentGacha = itemdatabase.Beginner_Pool;
+            Debug.Log("Current Gacha is " + currentGacha.name);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentGacha = itemdatabase.Deserted_Town;
+            Debug.Log("Current Gacha is " + currentGacha.name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentGacha = itemdatabase.Forge;
+            Debug.Log("Current Gacha is " + currentGacha.name);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            currentGacha = itemdatabase.Once_In_A_Lifetime;
+            Debug.Log("Current Gacha is " + currentGacha.name);
+        }
+    }
 
-        Debug.Log(itemdatabase.Items[1].ItemName);
-        Debug.Log(common[1].ItemName);
-        Debug.Log(itemdatabase.Items[7].ItemName);
-        Debug.Log(common[7].ItemName);
-
-        Debug.Log("Items in common rarity list is: " + common.Count);
-        Debug.Log("Items in uncommon rarity list is: " + uncommon.Count);
-        Debug.Log("Items in rare rarity list is: " + rare.Count);
-        Debug.Log("Items in legendary rarity list is: " + legendary.Count);
+    private void runChanceRand(int total){
+        rand = Random.Range(0, total);
+        foreach(var weight in rates){
+            if(rand <= weight){
+                //award item
+                runRarity(weight);
+                break;
+            } else {
+                rand -= weight;
+            }
+        }
     }
 
     private void runGacha(int count){      
@@ -65,30 +103,10 @@ public class GachaSystem : MonoBehaviour
             foreach(var item in rates){
                 total += item;
             }
-            // Debug.Log("Total is " + total);
-            rand = Random.Range(0, total);
-            // Debug.Log("Rand is " + rand);
 
-            foreach(var weight in rates){
-                if(rand <= weight){
-                    //award item
-                    runRarity(weight);
-                    break;
-                } else {
-                    rand -= weight;
-                }
-            }
+            runChanceRand(total);
 
             ps.money -= 100;
-            // for(int i = 0; i < rates.Length; i++){
-            //     if(rand < rates[i]){
-            //         //award item
-            //         Debug.Log("Award: " + weight);
-            //         return;
-            //     } else {
-            //         rand -= rates[i];
-            //     }
-            // }
         }
         ps.TimesXButtonText();
         ps.CountMoney();
@@ -102,22 +120,34 @@ public class GachaSystem : MonoBehaviour
         switch(rarityWeight){
             case 550:
                 Debug.Log("Common Pull");
-                runRandAndList(common);
+                if(currentGacha.common.Count == 0){
+                    runRarity(300);
+                }
+                runRandAndList(currentGacha.common);
             break;
 
             case 300:
                 Debug.Log("Uncommon Pull");
-                runRandAndList(uncommon);
+                if(currentGacha.uncommon.Count == 0){
+                    runRarity(100);
+                }
+                runRandAndList(currentGacha.uncommon);
             break;
 
             case 100:
                 Debug.Log("Rare Pull");
-                runRandAndList(rare);
+                if(currentGacha.rare.Count == 0){
+                    runRarity(50);
+                }
+                runRandAndList(currentGacha.rare);
             break;
 
             case 50:
                 Debug.Log("Legendary Pull");
-                runRandAndList(legendary);
+                if(currentGacha.legendary.Count == 0){
+                    runRarity(550);
+                }
+                runRandAndList(currentGacha.legendary);
             break;
         }
         return null;

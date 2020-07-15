@@ -45,6 +45,7 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Scripts\ButtonListExpand.cs" />
      <Compile Include="Assets\Scripts\CameraAspect.cs" />
+     <Compile Include="Assets\Scripts\Gacha\GachaPass.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaSystem.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaUIController.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaUIItem.cs" />
@@ -58,6 +59,8 @@
      <Compile Include="Assets\Scripts\PlayerSystem.cs" />
      <Compile Include="Assets\Scripts\ShadowOverlayFade.cs" />
      <Compile Include="Assets\Scripts\SideMenuButton.cs" />
+     <Compile Include="Assets\Scripts\TabButton.cs" />
+     <Compile Include="Assets\Scripts\TabGroup.cs" />
      <Compile Include="Assets\Scripts\UIEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

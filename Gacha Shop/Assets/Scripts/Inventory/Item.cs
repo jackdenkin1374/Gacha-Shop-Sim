@@ -5,12 +5,12 @@ using Newtonsoft.Json;
 
 public class Item
 {
-    public List<string> GachaTypes { get; set; }
     public enum ItemTypes { FoodAndDrink, Material, Junk, Clothing, Weapon, Key }
     public enum RarityTypes { Common, Uncommon, Rare, Legendary}
     public string ObjectSlug { get; set; }
     public string ItemName { get; set; }
     public string Description { get; set; }
+    public string[] GachaType { get; set; }
 
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public ItemTypes ItemType { get; set; }
@@ -20,12 +20,12 @@ public class Item
     public int Rarity { get; set; }
 
     [Newtonsoft.Json.JsonConstructor]
-    public Item(string _objectSlug, string _itemName, string _description, List<string> _gachaTypes, ItemTypes _itemType, RarityTypes _rarityType, int _rarity)
+    public Item(string _objectSlug, string _itemName, string _description, string[] _gachaType, ItemTypes _itemType, RarityTypes _rarityType, int _rarity)
     {
         this.ObjectSlug = _objectSlug;
         this.ItemName = _itemName;
         this.Description = _description;
-        this.GachaTypes = _gachaTypes;
+        this.GachaType = _gachaType;
         this.ItemType = _itemType;
         this.RarityType = _rarityType;
         this.Rarity = _rarity;
