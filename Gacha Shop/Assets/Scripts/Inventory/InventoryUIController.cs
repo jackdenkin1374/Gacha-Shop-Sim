@@ -20,10 +20,6 @@ public class InventoryUIController : MonoBehaviour
         inventoryPanel.gameObject.SetActive(false);
     }
 
-    // void OnEnable() {
-    //     UIEventHandler.OnItemAddedToInventory += ItemAdded;
-    // }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -32,7 +28,6 @@ public class InventoryUIController : MonoBehaviour
             inventoryPanel.gameObject.SetActive(menuIsActive);
         }
     }
-
 
     public void ItemAdded(Item item){
         Debug.Log("Adding Item: " + item.ItemName);

@@ -1,0 +1,3 @@
+InventoryController still in use
+
+Every other script related to inventory and panel_inventory_test is now just reference / old

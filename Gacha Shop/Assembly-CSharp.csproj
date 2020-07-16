@@ -45,6 +45,9 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Scripts\ButtonListExpand.cs" />
      <Compile Include="Assets\Scripts\CameraAspect.cs" />
+     <Compile Include="Assets\Scripts\Collection\CollectionUIController.cs" />
+     <Compile Include="Assets\Scripts\Collection\CollectionUIDetails.cs" />
+     <Compile Include="Assets\Scripts\Collection\CollectionUIItem.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaPass.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaSystem.cs" />
      <Compile Include="Assets\Scripts\Gacha\GachaUIController.cs" />
@@ -100,6 +103,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
+     <None Include="Assets\Scripts\Inventory\Note for Inventory Scripts.txt" />
      <None Include="Assets\Key Bindings.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\JsonDotNet\link.xml" />

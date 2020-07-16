@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerSystem : MonoBehaviour
 {
-    public float money;
+    public double money;
     // public List<GameObject> items;
     public TextMeshProUGUI timesX;
     public TextMeshProUGUI moneyCounter;

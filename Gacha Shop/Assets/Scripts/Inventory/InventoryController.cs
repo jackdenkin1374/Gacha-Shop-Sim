@@ -7,6 +7,7 @@ public class InventoryController : MonoBehaviour
 {
     private ItemDatabase itemdatabase;
     public List<Item> playerItems = new List<Item>();
+    // public List<Item> playerItemstest = new List<Item>();
     public InventoryUIDetails inventoryDetailsPanel;
     // public InventoryUI inventoryUI;
 
@@ -35,9 +36,21 @@ public class InventoryController : MonoBehaviour
 
     public void GiveItem(string itemSlug){
         Item item = itemdatabase.GetItem(itemSlug);
-        playerItems.Add(item);
-        Debug.Log(playerItems.Count + " items in inventory. Added: " + itemSlug);
-        UIEventHandler.ItemAddedToInventory(item);
+        // playerItems.Add(item);
+        // Debug.Log(playerItems.Count + " items in inventory. Added: " + itemSlug);
+        // UIEventHandler.ItemAddedToInventory(item);
+
+        if(!playerItems.Contains(item) && item.ItemCount == 0){
+            playerItems.Add(item);
+            Debug.Log(playerItems.Count + " items in inventory. Added: " + itemSlug);
+            item.ItemCount++;
+            UIEventHandler.ItemAddedToInventory(item);
+            UIEventHandler.ItemAddedToInventoryOrCount(item, false);
+        } else {          
+            item.ItemCount++;
+            Debug.Log(item.ObjectSlug + " Count is : " + item.ItemCount);
+            UIEventHandler.ItemAddedToInventoryOrCount(item, true);
+        }
     }
 
     public void SetItemDetails(Item item, Button selectedButton){

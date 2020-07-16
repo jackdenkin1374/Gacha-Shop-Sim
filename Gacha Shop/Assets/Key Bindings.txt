@@ -1,3 +1,7 @@
 I is inventory screen
 L is give item Egg
 M is add 900 money
+1 change current gacha to beginner pool
+2 change current gacha to deserted town
+3 change current gacha to forge
+4 change current gacha to once in a lifetime

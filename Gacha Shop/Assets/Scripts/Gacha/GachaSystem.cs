@@ -12,7 +12,6 @@ public class GachaSystem : MonoBehaviour
     private ItemDatabase itemdatabase;
     private InventoryController inventory;
     
-    // public List<GameObject> items;
     public int[] rates = {
         550, //Common
         300, //Uncommon
@@ -22,7 +21,6 @@ public class GachaSystem : MonoBehaviour
 
     private int total;
     private int rand;
-    // private string currentGacha;
     private GachaPass currentGacha;
 
     private void Start(){

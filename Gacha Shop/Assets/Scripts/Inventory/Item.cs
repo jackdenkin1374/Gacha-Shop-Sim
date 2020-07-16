@@ -10,6 +10,7 @@ public class Item
     public string ObjectSlug { get; set; }
     public string ItemName { get; set; }
     public string Description { get; set; }
+    public double MonetaryValue { get; set; }
     public string[] GachaType { get; set; }
 
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -18,13 +19,16 @@ public class Item
     [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
     public RarityTypes RarityType { get; set; }
     public int Rarity { get; set; }
+    public double ItemCount { get; set; }
 
     [Newtonsoft.Json.JsonConstructor]
-    public Item(string _objectSlug, string _itemName, string _description, string[] _gachaType, ItemTypes _itemType, RarityTypes _rarityType, int _rarity)
+    public Item(string _objectSlug, string _itemName, string _description, double _monetaryValue, 
+                string[] _gachaType, ItemTypes _itemType, RarityTypes _rarityType, int _rarity)
     {
         this.ObjectSlug = _objectSlug;
         this.ItemName = _itemName;
         this.Description = _description;
+        this.MonetaryValue = _monetaryValue;
         this.GachaType = _gachaType;
         this.ItemType = _itemType;
         this.RarityType = _rarityType;

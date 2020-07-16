@@ -7,18 +7,18 @@ public class ItemDatabase : MonoBehaviour
 {
     public static ItemDatabase Instance { get; set; }
     public List<Item> Items { get; set; }
-    public List<Item> rarityList = new List<Item>();
+    // public List<Item> rarityList = new List<Item>();
 
-    public List<Item> common = new List<Item>();
-    public List<Item> uncommon = new List<Item>();
-    public List<Item> rare = new List<Item>();
-    public List<Item> legendary = new List<Item>();
+    // public List<Item> common = new List<Item>();
+    // public List<Item> uncommon = new List<Item>();
+    // public List<Item> rare = new List<Item>();
+    // public List<Item> legendary = new List<Item>();
 
     public List<GachaPass> listOfGachas = new List<GachaPass>();
-    public GachaPass Beginner_Pool = new GachaPass("Beginner_Pool");
-    public GachaPass Deserted_Town = new GachaPass("Deserted_Town");
-    public GachaPass Forge = new GachaPass("Forge");
-    public GachaPass Once_In_A_Lifetime = new GachaPass("Once_In_A_Lifetime");
+    public GachaPass Beginner_Pool = new GachaPass("Beginner_Pool", "Beginner's Pool");
+    public GachaPass Deserted_Town = new GachaPass("Deserted_Town", "Deserted Town");
+    public GachaPass Forge = new GachaPass("Forge", "Forge");
+    public GachaPass Once_In_A_Lifetime = new GachaPass("Once_In_A_Lifetime", "Once In A Lifetime");
 
     // Start is called before the first frame update
     void Awake()
@@ -34,16 +34,16 @@ public class ItemDatabase : MonoBehaviour
     {
         Items = JsonConvert.DeserializeObject<List<Item>>(Resources.Load<TextAsset>("JSON/Items").ToString());
 
-        foreach(Item item in Items){
-            if(item.RarityType.ToString() == "Common")
-                common.Add(item);
-            if(item.RarityType.ToString() == "Uncommon")
-                uncommon.Add(item);
-            if(item.RarityType.ToString() == "Rare")
-                rare.Add(item);
-            if(item.RarityType.ToString() == "Legendary")
-                legendary.Add(item);
-        }
+        // foreach(Item item in Items){
+        //     if(item.RarityType.ToString() == "Common")
+        //         common.Add(item);
+        //     if(item.RarityType.ToString() == "Uncommon")
+        //         uncommon.Add(item);
+        //     if(item.RarityType.ToString() == "Rare")
+        //         rare.Add(item);
+        //     if(item.RarityType.ToString() == "Legendary")
+        //         legendary.Add(item);
+        // }
 
         foreach(Item item in Items){
             int count = item.GachaType.Length;
@@ -86,7 +86,7 @@ public class ItemDatabase : MonoBehaviour
     }
 
     private void buildRarityList(int index, GachaPass pass, Item item){
-        if(item.GachaType[index].ToString() == pass.name){
+        if(item.GachaType[index].ToString() == pass.objectSlug){
             switch(item.RarityType.ToString()){
                 case "Common":
                     pass.common.Add(item);
