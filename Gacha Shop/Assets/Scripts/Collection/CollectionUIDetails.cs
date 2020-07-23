@@ -6,23 +6,18 @@ using TMPro;
 
 public class CollectionUIDetails : MonoBehaviour
 {
-    // private Item item;
-    // private Button selectedItemButton, itemInteractButton;
-    // private TextMeshProUGUI  itemNameText, itemDescriptionText, itemInteractButtonText; 
+    private Item item;
+    public TextMeshProUGUI itemDescriptionText, itemRarity, itemPrice;
 
-    // void Start() {
-    //     itemNameText = transform.Find("Item_Name").GetComponent<TextMeshProUGUI >();
-    //     itemDescriptionText = transform.Find("Item_Description").GetComponent<TextMeshProUGUI >();
-    //     itemInteractButton = transform.GetComponentInChildren<Button>();
-    //     itemInteractButtonText = itemInteractButton.GetComponentInChildren<TextMeshProUGUI>();
-    //     gameObject.SetActive(false);
-    // }
+    void Start() {
+        gameObject.SetActive(false);
+    }
 
-    // public void SetItem(Item item, Button selectedButton){
-    //     gameObject.SetActive(true);
-    //     this.item = item;
-    //     selectedItemButton = selectedButton;
-    //     itemNameText.text = item.ItemName;
-    //     itemDescriptionText.text = item.Description;
-    // }
+    public void SetItem(Item item){
+        gameObject.SetActive(true);
+        this.item = item;
+        itemDescriptionText.text = item.Description;
+        itemRarity.text = "Rarity: " + item.RarityType.ToString();
+        itemPrice.text = "Selling Price: " + item.MonetaryValue.ToString();
+    }
 }

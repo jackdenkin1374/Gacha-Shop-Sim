@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectionUIController : MonoBehaviour
 {
+    public static CollectionUIController Instance { get; set; }
     public RectTransform inventoryPanel;
     public RectTransform scrollViewContent;
+    public CollectionUIDetails inventoryDetailsPanel;
     CollectionUIItem itemContainer { get; set; }
     CollectionUIItem emptyItem;
     List<CollectionUIItem> activeItems = new List<CollectionUIItem>();
@@ -15,6 +18,11 @@ public class CollectionUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance != null && Instance != this)
+            Destroy(gameObject);
+        else
+            Instance = this;
+            
         UIEventHandler.OnItemAddedToInventoryOrCount += ItemAddOrUpdate;
         
         itemContainer = Resources.Load<CollectionUIItem>("UI/Container_Styles/Collection_Container");
@@ -45,5 +53,10 @@ public class CollectionUIController : MonoBehaviour
             emptyItem.SetItem(item);
             emptyItem.transform.SetParent(scrollViewContent);
         }
+    }
+
+    public void SetItemDetails(Item item){
+        Debug.Log("Setting up details");
+        inventoryDetailsPanel.SetItem(item);
     }
 }
