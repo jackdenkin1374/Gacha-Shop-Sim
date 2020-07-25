@@ -20,8 +20,8 @@ public class CollectionUIItem : MonoBehaviour
     void Start()
     {
         collectionUIController = CollectionUIController.Instance;
-        Debug.Log("collection UI Controller is ");
-        Debug.Log(collectionUIController);
+        // Debug.Log("collection UI Controller is ");
+        // Debug.Log(collectionUIController);
         // background = GetComponent<Image>();
         // collectionUIGroup.Subscribe(this);
     }
@@ -41,28 +41,9 @@ public class CollectionUIItem : MonoBehaviour
         itemCount.SetText(item.ItemCount.ToString());
     }
 
-    // public void OnSelectItemButton(){
-    //     InventoryController.Instance.SetItemDetails(item, GetComponent<Button>());
-    // }
-
     public void SetUpItemDetails(){
-        Debug.Log("item is "+ item.ItemName);
-        Debug.Log(collectionUIController);
+        // Debug.Log("item is "+ item.ItemName);
+        // Debug.Log(collectionUIController);
         collectionUIController.SetItemDetails(item);
-    }
-
-    // public void OnPointerClick(PointerEventData eventData)
-    // {
-    //     collectionUIGroup.OnTabSelected(this);
-    // }
-
-    // public void OnPointerEnter(PointerEventData eventData)
-    // {
-    //     collectionUIGroup.OnTabEnter(this);
-    // }
-
-    // public void OnPointerExit(PointerEventData eventData)
-    // {
-    //     collectionUIGroup.OnTabExit(this);
-    // }    
+    } 
 }

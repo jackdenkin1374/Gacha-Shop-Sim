@@ -1,6 +1,8 @@
 I is inventory screen
 L is give item Egg
 M is add 900 money
+K is remove item Egg
+J is remove item wood
 1 change current gacha to beginner pool
 2 change current gacha to deserted town
 3 change current gacha to forge

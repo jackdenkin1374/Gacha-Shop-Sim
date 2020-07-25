@@ -28,30 +28,30 @@ public class CollectionUIController : MonoBehaviour
         itemContainer = Resources.Load<CollectionUIItem>("UI/Container_Styles/Collection_Container");
     }
 
-    public void ItemAdded(Item item){
-        Debug.Log("Adding Item: " + item.ItemName);
-        emptyItem = Instantiate(itemContainer);
-        activeItems.Add(emptyItem);
-        emptyItem.SetItem(item);
-        emptyItem.transform.SetParent(scrollViewContent);
-    }
-
-    public void ItemAddOrUpdate(Item item, bool toCount){
-        if(toCount){
-            foreach(var UIItem in activeItems){
-                if(UIItem.item.ObjectSlug == item.ObjectSlug){
-                    emptyItem = UIItem;
-                    break;
-                }
+    public void ItemAddOrUpdate(Item item, bool toCount, bool isEmpty){
+        foreach(var UIItem in activeItems){
+            if(UIItem.item.ObjectSlug == item.ObjectSlug){
+                emptyItem = UIItem;
+                break;
             }
-            Debug.Log(emptyItem.item.ObjectSlug);
-            emptyItem.UpdateValues();
+        }
+
+        if(isEmpty){
+            Debug.Log("Destroying " + item.ItemName + " item container");
+            Destroy(emptyItem.gameObject);
+            activeItems.Remove(emptyItem);
+            inventoryDetailsPanel.gameObject.SetActive(false);
         } else {
-            Debug.Log("Adding Item: " + item.ItemName);
-            emptyItem = Instantiate(itemContainer);
-            activeItems.Add(emptyItem);
-            emptyItem.SetItem(item);
-            emptyItem.transform.SetParent(scrollViewContent);
+            if(toCount){
+                Debug.Log(emptyItem.item.ObjectSlug);
+                emptyItem.UpdateValues();
+            } else {
+                Debug.Log("Adding Item: " + item.ItemName);
+                emptyItem = Instantiate(itemContainer);
+                activeItems.Add(emptyItem);
+                emptyItem.SetItem(item);
+                emptyItem.transform.SetParent(scrollViewContent);
+            }
         }
     }
 
