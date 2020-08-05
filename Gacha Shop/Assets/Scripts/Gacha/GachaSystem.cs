@@ -21,7 +21,7 @@ public class GachaSystem : MonoBehaviour
 
     private int total;
     private int rand;
-    private GachaPass currentGacha;
+    public GachaPass currentGacha;
 
     private void Start(){
         itemdatabase = ItemDatabase.Instance;
@@ -55,29 +55,6 @@ public class GachaSystem : MonoBehaviour
         // Debug.Log("Lifetime Uncommon count is " + itemdatabase.Once_In_A_Lifetime.uncommon.Count);
         // Debug.Log("Lifetime Rare count is " + itemdatabase.Once_In_A_Lifetime.rare.Count);
         // Debug.Log("Lifetime Legendary count is " + itemdatabase.Once_In_A_Lifetime.legendary.Count);
-    }
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            currentGacha = itemdatabase.Beginner_Pool;
-            Debug.Log("Current Gacha is " + currentGacha.name);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            currentGacha = itemdatabase.Deserted_Town;
-            Debug.Log("Current Gacha is " + currentGacha.name);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            currentGacha = itemdatabase.Forge;
-            Debug.Log("Current Gacha is " + currentGacha.name);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            currentGacha = itemdatabase.Once_In_A_Lifetime;
-            Debug.Log("Current Gacha is " + currentGacha.name);
-        }
     }
 
     private void runChanceRand(int total){

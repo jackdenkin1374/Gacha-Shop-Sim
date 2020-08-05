@@ -62,8 +62,10 @@
      <Compile Include="Assets\Scripts\PlayerSystem.cs" />
      <Compile Include="Assets\Scripts\ShadowOverlayFade.cs" />
      <Compile Include="Assets\Scripts\SideMenuButton.cs" />
-     <Compile Include="Assets\Scripts\TabButton.cs" />
-     <Compile Include="Assets\Scripts\TabGroup.cs" />
+     <Compile Include="Assets\Scripts\TabButtons\TabButton.cs" />
+     <Compile Include="Assets\Scripts\TabButtons\TabGacha.cs" />
+     <Compile Include="Assets\Scripts\TabButtons\TabGachaGroup.cs" />
+     <Compile Include="Assets\Scripts\TabButtons\TabGroup.cs" />
      <Compile Include="Assets\Scripts\UIEventHandler.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

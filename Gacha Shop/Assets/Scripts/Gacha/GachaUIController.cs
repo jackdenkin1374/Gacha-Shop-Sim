@@ -36,4 +36,9 @@ public class GachaUIController : MonoBehaviour
         }
         list.Clear();
     }
+
+    public void ClearPanel(){
+        DestroyItemPulled();
+        gachaPullPanel.gameObject.SetActive(false);
+    }
 }
