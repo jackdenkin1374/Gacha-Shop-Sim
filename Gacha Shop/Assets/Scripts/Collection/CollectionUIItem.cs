@@ -7,23 +7,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
 public class CollectionUIItem : MonoBehaviour
-// public class CollectionUIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Item item { get; set; }
     public TextMeshProUGUI itemText;
     public TextMeshProUGUI itemCount;
     public Image itemImage;
     private CollectionUIController collectionUIController;
-    // public CollectionUIDetails itemDetails;
-    // public Image background;
 
     void Start()
     {
         collectionUIController = CollectionUIController.Instance;
-        // Debug.Log("collection UI Controller is ");
-        // Debug.Log(collectionUIController);
-        // background = GetComponent<Image>();
-        // collectionUIGroup.Subscribe(this);
+        Debug.Log("collection UI Controller is ");
+        Debug.Log(collectionUIController);
     }
 
     public void SetItem(Item item){

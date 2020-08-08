@@ -50,7 +50,7 @@ public class CollectionUIController : MonoBehaviour
                 emptyItem = Instantiate(itemContainer);
                 activeItems.Add(emptyItem);
                 emptyItem.SetItem(item);
-                emptyItem.transform.SetParent(scrollViewContent);
+                emptyItem.transform.SetParent(scrollViewContent, false);
             }
         }
     }

@@ -61,6 +61,9 @@
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerSystem.cs" />
      <Compile Include="Assets\Scripts\ShadowOverlayFade.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopSystem.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopUIController.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopUIItem.cs" />
      <Compile Include="Assets\Scripts\SideMenuButton.cs" />
      <Compile Include="Assets\Scripts\TabButtons\TabButton.cs" />
      <Compile Include="Assets\Scripts\TabButtons\TabGacha.cs" />

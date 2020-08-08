@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GachaSystem : MonoBehaviour
 {
-    public PlayerSystem ps;
+    private PlayerSystem ps;
     public RectTransform gachaPullPanel;
     public GachaUIController gachaUIController;
 
@@ -24,6 +24,7 @@ public class GachaSystem : MonoBehaviour
     public GachaPass currentGacha;
 
     private void Start(){
+        ps = PlayerSystem.Instance;
         itemdatabase = ItemDatabase.Instance;
         inventory = InventoryController.Instance;
         currentGacha = itemdatabase.Beginner_Pool;
