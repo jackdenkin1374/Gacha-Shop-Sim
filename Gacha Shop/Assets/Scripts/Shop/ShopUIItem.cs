@@ -24,16 +24,16 @@ public class ShopUIItem : MonoBehaviour
         shop = ShopSystem.Instance;
         shopUIController = ShopUIController.Instance;
 
-        Debug.Log("--------IMPORTANT SHOP IS ");
-        Debug.Log(shop);
+        // Debug.Log("--------IMPORTANT SHOP IS ");
+        // Debug.Log(shop);
 
         sell1.interactable = true;
         sell10.interactable = false;
         sell100.interactable = false;
         sell1000.interactable = false;
         sellAll.interactable = true;
-        Debug.Log("shop UI Controller is ");
-        Debug.Log(shopUIController);
+        // Debug.Log("shop UI Controller is ");
+        // Debug.Log(shopUIController);
     }
 
     public void SetItem(Item item){
